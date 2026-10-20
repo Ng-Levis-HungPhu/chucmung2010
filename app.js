@@ -56,20 +56,18 @@ function playLetter(g) {
   $("letter").hidden = false;
   typeText($("letMsg"), g.message, () => $("letFrom").classList.add("show"));
 }
-
-/* ---------- Tải lời chúc từ backend ---------- */
 async function load() {
   $("error").hidden = true;
   $("loading").hidden = false;
   const wakeTimer = setTimeout(() => ($("wake").hidden = false), 3000);
   try {
-    const res = await fetch("./greeting");
+    const res = await fetch("./greeting.json");
     if (!res.ok) throw new Error("HTTP " + res.status);
     const g = await res.json();
 
     document.body.dataset.theme = g.theme || "hong";
     petals.setTheme(g.theme);
-    document.title = "Lời chúc 20/10 dành cho " + g.to + " 🌸";
+    document.title = "Lời chúc 20/10 🌸";
     $("envTo").textContent = g.to;
     $("loading").hidden = true;
     $("envelope").hidden = false;
