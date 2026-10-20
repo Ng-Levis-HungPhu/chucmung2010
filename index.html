@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chúc mừng 20/10 🌸</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="hong">
+  <canvas id="petals" aria-hidden="true"></canvas>
+
+  <main class="screen">
+    <p id="loading" class="status">Đang tải lời chúc... 🌸<br /><small id="wake" hidden>Máy chủ miễn phí đang thức dậy, đợi một chút nhé ☕</small></p>
+
+    <div id="envelope" class="envelope" role="button" tabindex="0" aria-label="Mở thư" hidden>
+      <div class="env-heart">💌</div>
+      <p class="env-to">Gửi <strong id="envTo"></strong></p>
+      <p class="env-hint">Chạm để mở</p>
+    </div>
+
+    <article id="letter" class="letter" hidden>
+      <p class="eyebrow">Chúc mừng ngày Phụ nữ Việt Nam</p>
+      <h1>20<span>/</span>10</h1>
+      <p class="dear">Gửi <span id="letTo"></span>,</p>
+      <p id="letMsg" class="msg-text"></p>
+      <p id="letFrom" class="from"></p>
+      <button id="replay" class="btn">↻ Xem lại</button>
+    </article>
+
+    <div id="error" class="status" hidden>
+      <p id="errorText"></p>
+      <button id="retry" class="btn">Thử lại</button>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
