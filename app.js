@@ -2,7 +2,6 @@ const API = (window.APP_CONFIG && window.APP_CONFIG.API_URL) || "";
 const $ = (id) => document.getElementById(id);
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- Cánh hoa rơi ---------- */
 const petals = (function () {
   const c = $("petals");
   const ctx = c.getContext("2d");
@@ -37,7 +36,6 @@ const petals = (function () {
   };
 })();
 
-/* ---------- Hiệu ứng gõ chữ ---------- */
 let typingTimer = null;
 function typeText(el, text, done) {
   clearInterval(typingTimer);
@@ -65,7 +63,7 @@ async function load() {
   $("loading").hidden = false;
   const wakeTimer = setTimeout(() => ($("wake").hidden = false), 3000);
   try {
-    const res = await fetch(API + "/api/greeting");
+    const res = await fetch("./greeting");
     if (!res.ok) throw new Error("HTTP " + res.status);
     const g = await res.json();
 
@@ -80,7 +78,6 @@ async function load() {
       $("envelope").hidden = true;
       petals.burst();
       playLetter(g);
-      fetch(API + "/api/opened", { method: "POST" }).catch(() => {}); // báo cho bạn biết đã mở
     };
     $("envelope").onclick = open;
     $("envelope").onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } };
